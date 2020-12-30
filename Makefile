@@ -59,10 +59,18 @@ gen-go: $(BUF) $(PROTOC) $(PROTOC_GEN_GO) ## generate go files
 	@mkdir -p $(GEN)/go
 	@$(BIN)/buf build -o - | $(BIN)/protoc $(PROTOC_OPTION) $(PROTOC_OPTION_GO) $(TARGETS)
 
-# TODO: Add make command for sync
+.PHONY: sync
+sync: ## code sync to terminal
+	@git clone https://github.com/kk-no/proto-terminal.git
+	@cp -r $(GEN)/go/ proto-terminal/
+	@cd proto-terminal && \
+		git add -A . && \
+		git commit -m "generate from proto" --allow-empty && \
+		git push -f
+	@rm -rf proto-terminal
 
 lint: $(BUF) ## buf lint proto files
 	@$(BIN)/buf check lint
 
-help: ## Display this help screen
+help: ## display this help screen
 	@grep -E '^[a-zA-Z/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'

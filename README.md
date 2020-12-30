@@ -5,6 +5,7 @@ The code generated here will be synchronized with the proto-terminal and put int
 
 ## dependency
 
+* go v1.15
 * protoc v3.14.0
 * protoc-gen-doc v1.3.2
 * protoc-gen-go v1.4.3
