@@ -1,6 +1,6 @@
 # proto-station
 
-This repository is intend for code generation from protobuf.
+This repository is intend for code generation from protobuf.  
 The code generated here will be synchronized with the proto-terminal and put into a format that can be used as a library.
 
 ## dependency
@@ -24,6 +24,9 @@ $ make gen-doc
 
 # generate go code. 
 $ make gen-go
+
+# sync code to terminal. 
+$ make sync
 
 # run buf lint
 $ make lint
