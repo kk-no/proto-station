@@ -31,19 +31,23 @@ $(BUF): | $(BIN)
 
 PROTOC_GEN_GO := $(BIN)/protoc-gen-go
 $(PROTOC_GEN_GO): | $(BIN)
-	go build -o $(PROTOC_GEN_GO) github.com/golang/protobuf/protoc-gen-go
+	go build -o $(PROTOC_GEN_GO) google.golang.org/protobuf/cmd/protoc-gen-go
+
+PROTOC_GEN_GO_GRPC := $(BIN)/protoc-gen-go-grpc
+$(PROTOC_GEN_GO_GRPC): | $(BIN)
+	go build -o $(PROTOC_GEN_GO_GRPC) google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 PROTOC_GEN_DOC := $(BIN)/protoc-gen-doc
 $(PROTOC_GEN_DOC): | $(BIN)
 	go build -o $(PROTOC_GEN_DOC) github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc
 
 PROTOC_OPTION := --descriptor_set_in=/dev/stdin
-PROTOC_OPTION_GO := --plugin=$(PROTOC_GEN_GO) --go_out=plugins=grpc,paths=source_relative:$(GEN)/go
+PROTOC_OPTION_GO := --go_out=$(GEN)/go --go_opt=paths=source_relative --go-grpc_out=$(GEN)/go --go-grpc_opt=require_unimplemented_servers=true,paths=source_relative
 PROTOC_OPTION_DOC := --plugin=protoc-gen-doc=$(PROTOC_GEN_DOC) --doc_out=$(GEN)/doc --doc_opt=html,index.html
 TARGETS := $(shell find proto -name *.proto | sed -e 's/^proto\///')
 
 .PHONY: gen
-gen: $(BUF) $(PROTOC) $(PROTOC_GEN_GO) $(PROTOC_GEN_DOC) ## generate all files
+gen: $(BUF) $(PROTOC) $(PROTOC_GEN_GO) $(PROTOC_GEN_GO_GRPC) $(PROTOC_GEN_DOC) ## generate all files
 	@$(MAKE) gen-doc
 	@$(MAKE) gen-go
 
