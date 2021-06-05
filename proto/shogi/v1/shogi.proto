@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package shogi.v1;
 
-option go_package = "github.com/kk-no/proto-station/shogi/v1";
+option go_package = "github.com/kk-no/proto-terminal/shogi/v1";
 
 service ShogiService {
   rpc Ping(PingRequest) returns (PingResponse);

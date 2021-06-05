@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package task.v1;
+
+option go_package = "github.com/kk-no/proto-terminal/task/v1";
+
+import "task/v1/status.proto";
+
+service TaskService {
+  rpc Ping(PingRequest) returns (PingResponse);
+  rpc ListTask(ListTaskRequest) returns (ListTaskResponse);
+  rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse);
+  rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse);
+}
+
+message Task {
+    string task_id = 1;
+    string title = 2;
+    string detail = 3;
+    string limit = 4;
+    string status = 5;
+}
+
+message PingRequest {}
+
+message PingResponse {}
+
+message ListTaskRequest {
+    string task_ids = 1;
+    string status = 2;
+}
+
+message ListTaskResponse {
+    repeated Task tasks = 1;
+}
+
+message CreateTaskRequest {
+    string title = 1;
+    string detail = 2;
+    string limit = 3;
+}
+
+message CreateTaskResponse {
+    Task task = 1;
+}
+
+message UpdateTaskRequest {
+    string task_id = 1;
+    Status status = 2;
+}
+
+message UpdateTaskResponse {
+    Task task = 1;
+}
+

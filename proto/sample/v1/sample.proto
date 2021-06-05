@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sample.v1;
 
-option go_package = "github.com/kk-no/proto-station/sample/v1";
+option go_package = "github.com/kk-no/proto-terminal/sample/v1";
 
 service SampleService {
   rpc Ping(PingRequest) returns (PingResponse);

@@ -9,6 +9,7 @@ The code generated here will be synchronized with the proto-terminal and put int
 * protoc v3.14.0
 * protoc-gen-doc v1.3.2
 * protoc-gen-go v1.4.3
+* protoc-gen-go-grpc v1.38.0
 * buf v0.33.0
 
 ## command
