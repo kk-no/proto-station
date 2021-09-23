@@ -32,3 +32,14 @@ $ make sync
 # run buf lint
 $ make lint
 ```
+
+## Dependency
+
+Need to clone these locally to use grpc-gateway.
+
+https://github.com/googleapis/googleapis
+
+- google/api/annotations.proto
+- google/api/field_behaviour.proto
+- google/api/http.proto
+- google/api/httpbody.proto
