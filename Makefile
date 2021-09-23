@@ -41,7 +41,7 @@ $(PROTOC_GEN_GO_GRPC): | $(BIN)
 
 PROTOC_GEN_GRPC_GATEWAY := $(BIN)/protoc-gen-grpc-gateway
 $(PROTOC_GEN_GRPC_GATEWAY): | $(BIN)
-	go build -o $(PROTOC_GEN_GRPC_GATEWAY) github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
+	go build -o $(PROTOC_GEN_GRPC_GATEWAY) github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 
 PROTOC_GEN_DOC := $(BIN)/protoc-gen-doc
 $(PROTOC_GEN_DOC): | $(BIN)
