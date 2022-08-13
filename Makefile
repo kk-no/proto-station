@@ -3,6 +3,7 @@
 BIN := $(CURDIR)/.bin
 GEN := $(CURDIR)/gen
 
+PATH := ${PATH}:$(BIN)
 UNAME_OS := $(shell uname -s)
 UNAME_ARCH := $(shell uname -m)
 
