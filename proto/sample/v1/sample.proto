@@ -4,14 +4,8 @@ package sample.v1;
 
 option go_package = "github.com/kk-no/proto-terminal/sample/v1";
 
-import "google/api/annotations.proto";
-
 service SampleService {
-  rpc Ping(PingRequest) returns (PingResponse) {
-    option (google.api.http) = {
-      get: "/v1/liveness"
-    };
-  }
+  rpc Ping(PingRequest) returns (PingResponse) {}
 }
 
 message PingRequest {}
