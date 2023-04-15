@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package vs.v1;
+
+option go_package = "github.com/kk-no/proto-terminal/vs/v1";
+
+service VSService {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {}
+}
+
+message PingRequest {}
+
+message PingResponse {}
+
+message ListUsersRequest {}
+
+message ListUsersResponse {
+  repeated User users = 1;
+}
+
+message User {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  uint32 win = 4;
+  uint32 lose = 5;
+  float win_rate = 6;
+  uint32 rating = 7;
+  uint32 max_rating = 8;
+  string privilege = 9;
+  string continuous_attendance = 10;
+}

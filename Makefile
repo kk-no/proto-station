@@ -38,6 +38,9 @@ sync: ## code sync to terminal
 		git push -f
 	@rm -rf proto-terminal
 
+fmt: $(BUF) ## format proto files
+	@$(BIN)/buf format -w
+
 lint: $(BUF) ## lint proto files
 	@$(BIN)/buf lint
 
