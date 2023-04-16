@@ -7,6 +7,7 @@ option go_package = "github.com/kk-no/proto-terminal/vs/v1";
 service VSService {
   rpc Ping(PingRequest) returns (PingResponse) {}
   rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {}
+  rpc GetUserWithGameResults(GetUserWithGameResultsRequest) returns (GetUserWithGameResultsResponse) {}
 }
 
 message PingRequest {}
@@ -17,6 +18,15 @@ message ListUsersRequest {}
 
 message ListUsersResponse {
   repeated User users = 1;
+}
+
+message GetUserWithGameResultsRequest {
+  string user_id = 1;
+}
+
+message GetUserWithGameResultsResponse {
+  User user = 1;
+  repeated GameResult game_results = 2;
 }
 
 message User {
@@ -30,4 +40,19 @@ message User {
   uint32 max_rating = 8;
   string privilege = 9;
   string continuous_attendance = 10;
+}
+
+message GameResult {
+  string id = 1;
+  string date = 2;
+  User player1 = 3;
+  User player2 = 4;
+  string win_user_id = 5;
+  string note = 6;
+  RatingFluctuation rating_fluctuation = 7;
+}
+
+message RatingFluctuation {
+  uint32 winner = 1;
+  uint32 loser = 2;
 }
