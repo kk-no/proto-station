@@ -53,6 +53,6 @@ message GameResult {
 }
 
 message RatingFluctuation {
-  uint32 winner = 1;
-  uint32 loser = 2;
+  int32 winner = 1;
+  int32 loser = 2;
 }
