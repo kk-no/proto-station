@@ -4,7 +4,7 @@ package shadan.v1;
 
 option go_package = "github.com/kk-no/proto-terminal/shadan/v1";
 
-service VSService {
+service ShadanService {
   rpc Ping(PingRequest) returns (PingResponse) {}
   rpc ListUserRanking(ListUserRankingRequest) returns (ListUserRankingResponse) {}
 }
