@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package shadan.v1;
+
+option go_package = "github.com/kk-no/proto-terminal/shadan/v1";
+
+service VSService {
+  rpc Ping(PingRequest) returns (PingResponse) {}
+  rpc ListUserRanking(ListUserRankingRequest) returns (ListUserRankingResponse) {}
+}
+
+message PingRequest {}
+
+message PingResponse {}
+
+message ListUserRankingRequest {}
+
+message ListUserRankingResponse {
+    repeated UserRank user_ranking = 1;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    int32 rating = 3;
+    int32 game_count = 4;
+    string league = 5;
+    string team = 6;
+}
+
+message UserRank {
+    int32 rank = 1;
+    User user = 2;
+    int32 rating_fluctuation = 3;
+    int32 game_count_fluctuation = 4;
+}
