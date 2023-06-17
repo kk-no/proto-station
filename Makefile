@@ -30,6 +30,7 @@ gen-go: $(BUF) $(PROTOC) $(PROTOC_GEN_GO) ## generate go files
 
 .PHONY: sync
 sync: ## code sync to terminal
+	@make
 	@git clone https://github.com/kk-no/proto-terminal.git
 	@cp -r $(GEN)/go/ proto-terminal/
 	@cd proto-terminal && \
