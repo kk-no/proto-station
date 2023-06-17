@@ -15,34 +15,34 @@ message PingRequest {}
 message PingResponse {}
 
 message GetTeamRequest {
-    string team = 1;
+  string team = 1;
 }
 
 message GetTeamResponse {
-    string name = 1;
-    string user_count = 2;
-    int32 average_rating = 3;
-    repeated UserRank user_ranking = 4;
+  string name = 1;
+  string user_count = 2;
+  int32 average_rating = 3;
+  repeated UserRank user_ranking = 4;
 }
 
 message ListUserRankingRequest {}
 
 message ListUserRankingResponse {
-    repeated UserRank user_ranking = 1;
+  repeated UserRank user_ranking = 1;
 }
 
 message User {
-    string id = 1;
-    string name = 2;
-    int32 rating = 3;
-    int32 game_count = 4;
-    string league = 5;
-    string team = 6;
+  string id = 1;
+  string name = 2;
+  int32 rating = 3;
+  int32 game_count = 4;
+  string league = 5;
+  string team = 6;
 }
 
 message UserRank {
-    int32 rank = 1;
-    User user = 2;
-    int32 rating_fluctuation = 3;
-    int32 game_count_fluctuation = 4;
+  int32 rank = 1;
+  User user = 2;
+  int32 rating_fluctuation = 3;
+  int32 game_count_fluctuation = 4;
 }
