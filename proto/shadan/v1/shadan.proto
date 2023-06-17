@@ -20,7 +20,7 @@ message GetTeamRequest {
 
 message GetTeamResponse {
   string name = 1;
-  string user_count = 2;
+  int32 user_count = 2;
   int32 average_rating = 3;
   repeated UserRank user_ranking = 4;
 }
