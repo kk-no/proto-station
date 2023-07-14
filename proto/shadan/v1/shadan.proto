@@ -6,6 +6,7 @@ option go_package = "github.com/kk-no/proto-terminal/shadan/v1";
 
 service ShadanService {
   rpc Ping(PingRequest) returns (PingResponse) {}
+  rpc GetLeague(GetLeagueRequest) returns (GetLeagueResponse) {}
   rpc GetTeam(GetTeamRequest) returns (GetTeamResponse) {}
   rpc ListUserRanking(ListUserRankingRequest) returns (ListUserRankingResponse) {}
 }
@@ -13,6 +14,17 @@ service ShadanService {
 message PingRequest {}
 
 message PingResponse {}
+
+message GetLeagueRequest {
+  string league = 1;
+}
+
+message GetLeagueResponse {
+  string name = 1;
+  int32 user_count = 2;
+  int32 average_rating = 3;
+  repeated UserRank user_ranking = 4;
+}
 
 message GetTeamRequest {
   string team = 1;
